@@ -11,29 +11,19 @@ Tools:
 -log
 */
 
-let continueList = true;
+const shoppingList = ['carne', 'pesce', 'frutta', 'acqua', 'carta'];
+console.log(shoppingList);
 
-while (continueList) {
-    const shoppingList = [];
-    let i = 0;
+let i = 0;
 
-    while (i < 5) {
-        const product = prompt('inserisci un prodotto da comprare!');
-        console.log(product);
+while (i < shoppingList.length) {
+    const element = shoppingList[i];
 
-        shoppingList.push(product);
+    const ulEl = document.querySelector('ul');
+    const liEl = document.createElement('li');
+    liEl.append(element);
+    ulEl.append(liEl);
+    console.log(shoppingList[i]);
 
-        i++;
-    }
-
-    const addMore = confirm('sei convinto della tua lista?')
-    console.log(addMore);
-
-    if (addMore) {
-        console.log(shoppingList);
-        document.querySelector('span').innerHTML = shoppingList;
-        continueList = false;
-    } else {
-        continueList = true; 
-    }
+    i++
 }
